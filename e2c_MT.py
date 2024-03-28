@@ -18,21 +18,22 @@ THREAD_LIMITER = 5
 
 def evtx_to_xml(file_path):
     """
-    Function to convert EVTX files to XML
+    Function to convert EVTX files to CSV
     """
     start = datetime.now()
-    print("Converting", file_path, "to XML" + " at ", start)
+    print("Converting", file_path, "to CSV" + " at ", start)
     
+
     with Evtx(file_path) as log:
-        with open(file_path + ".xml", 'w') as f:
-            f.write("<Events>\n")
+        with open(file_path + ".csv", 'w', newline='') as f:
+            writer = csv.writer(f)
             for xml, _ in view(log.get_file_header()):
                 try:
-                    f.write(xml)
-                    f.write("\n")
+                    root = ET.fromstring(xml)
+                    data = [elem.text for elem in root.iter()]
+                    writer.writerow(data)
                 except Exception as e:
                     print(e)
-            f.write("</Events>\n")
     end = datetime.now()
     print("Script ended at ", end, "with time taken: ", end - start)
 

@@ -1,5 +1,5 @@
 from Evtx.Evtx import Evtx
-from Evtx.Views import evtx_file_xml_view
+from Evtx.Views import evtx_file_xml_view as view
 from datetime import datetime
 
 """
@@ -22,7 +22,7 @@ def evtx_to_xml(file_path):
     with Evtx(file_path) as log:
         with open(file_path + ".xml", 'w') as f:
             f.write("<Events>\n")
-            for xml, _ in evtx_file_xml_view(log.get_file_header()):
+            for xml, _ in view(log.get_file_header()):
                 try:
                     f.write(xml)
                     f.write("\n")
