@@ -8,7 +8,7 @@ import xml.etree.ElementTree as ET
 -------------------------------------------------
 Script Name: e2c.py
 Description: This script converts EVTX files to CSV
-Author: Adam Papp
+Author: 4d4MP
 Date: 2024-03-28
 -------------------------------------------------
 """

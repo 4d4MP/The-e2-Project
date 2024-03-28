@@ -6,7 +6,7 @@ from datetime import datetime
 -------------------------------------------------
 Script Name: e2x.py
 Description: This script converts EVTX files to XML
-Author: Adam Papp
+Author: 4d4MP
 Date: 2024-03-28
 -------------------------------------------------
 """
